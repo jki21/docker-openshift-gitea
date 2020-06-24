@@ -38,10 +38,11 @@ RUN adduser gitea --home-dir=/home/gitea \
     && chgrp -R 0 ${APP_HOME} \
     && chgrp -R 0 /.ssh \
     && chmod -R g=u ${APP_HOME} /etc/passwd
+    && chmod 1777 /tmp
 
 WORKDIR ${APP_HOME}
 VOLUME ${REPO_HOME}
 EXPOSE 22 3000
-USER 1001
+USER gitea
 
 ENTRYPOINT ["/usr/bin/rungitea"]
