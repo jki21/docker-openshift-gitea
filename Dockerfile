@@ -37,7 +37,7 @@ RUN adduser gitea --home-dir=/home/gitea \
     && chown gitea:root ${APP_HOME}/gitea \
     && chgrp -R 0 ${APP_HOME} \
     && chgrp -R 0 /.ssh \
-    && chmod -R g=u ${APP_HOME} /etc/passwd
+    && chmod -R g=u ${APP_HOME} /etc/passwd \
     && chmod 1777 /tmp
 
 WORKDIR ${APP_HOME}
